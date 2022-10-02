@@ -40,7 +40,7 @@ const Pagination = ({ showPerPage, onPaginationChange, total }) => {
               <BiChevronsLeft size={30} onClick={() => onButtonClick("prev")} />
             </li>
 
-            {[...Array(numberOfButtons).keys()].map((index) => (
+            {[...Array(numberOfButtons).keys()].slice(0, 3).map((index) => (
               <li
                 key={index}
                 className={`page-link ${

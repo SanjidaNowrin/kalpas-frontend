@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { ImCross } from "react-icons/im";
 import Pagination from "./../Pagination/Pagination";
+import IframePost from "./../IframePost/IframePost";
 
 const Posts = ({ toggle, deletePost, posts }) => {
   const [showPerPage, setShowPerPage] = useState(6);
+  const [shown, setShown] = useState(false);
   const [pagination, setPagination] = useState({
     start: 0,
     end: showPerPage,
@@ -12,6 +14,8 @@ const Posts = ({ toggle, deletePost, posts }) => {
   const onPaginationChange = (start, end) => {
     setPagination({ start: start, end: end });
   };
+  // iframe
+
   return (
     <div className="container mt-5">
       {toggle === "vertical" ? (
