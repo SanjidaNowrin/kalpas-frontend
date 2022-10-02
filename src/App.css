@@ -1,38 +1,99 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #ebf2f7;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.drawerBody {
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
+  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
+    0px 18px 88px -4px rgba(24, 39, 75, 0.14);
+  height: 100vh;
 }
+.readerCard {
+  border-radius: 8px;
+  width: 265px;
+  margin: 0 auto;
+}
+.toggleButtonTwo {
+  border-radius: 0px 8px 8px 0px;
+  padding: 12px 15px;
+  cursor: pointer;
+}
+.toggleButtonOne {
+  border-radius: 8px 0px 0px 8px;
+  padding: 12px 15px;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  cursor: pointer;
+}
+.activeToggle {
+  background-color: #a3ffd3;
+}
+.inactiveToggle {
+  background-color: #ebf2f7;
+  color: #9c9c9c;
+}
+.feedbackButton {
+  background: #a3ffd3;
+  box-shadow: inset 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
+    inset 0px 18px 88px -4px rgba(24, 39, 75, 0.14);
+  border-radius: 8px;
+  width: 200px;
+  margin: 0 auto;
+}
+.crossBtn {
+  background-color: #ffffff;
+  background: #ffffff;
+  box-shadow: 0px 6px 12px -6px rgba(24, 39, 75, 0.12),
+    0px 8px 24px -4px rgba(24, 39, 75, 0.08);
+  border-radius: 64px;
+  margin-top: 40px;
+  color: #ff9090;
+  cursor: pointer;
+}
+.modal-content {
+  height: 100vh;
+  border: 0;
+  border-radius: 0px 32px 32px 0px;
+}
+.modal-dialog {
+  position: fixed;
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+}
+.cardHorizontal {
+  border-radius: 8px;
+}
+.cardHorizontal .card-text {
+  color: #ff9090;
+  cursor: pointer;
+}
+.cardVertical {
+  border-radius: 16px;
+}
+/* pagination */
+.typeButton {
+  color: #bcbcbc;
+  margin: 0 auto !important;
+  cursor: pointer;
+}
+.page-link {
+  border: 0;
+  border-radius: 30px 30px;
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  flex-wrap: wrap;
+  background-color: #bcbcbc;
   color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pageActive {
+  color: black;
+  background-color: white;
 }
