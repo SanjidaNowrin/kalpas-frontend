@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ImCross } from "react-icons/im";
 import Pagination from "./../Pagination/Pagination";
 
-const Posts = ({ posts, toggle, deletePost }) => {
+const Posts = ({ toggle, deletePost, posts }) => {
   const [showPerPage, setShowPerPage] = useState(6);
   const [pagination, setPagination] = useState({
     start: 0,
@@ -11,9 +11,7 @@ const Posts = ({ posts, toggle, deletePost }) => {
 
   const onPaginationChange = (start, end) => {
     setPagination({ start: start, end: end });
-    return onPaginationChange;
   };
-
   return (
     <div className="container mt-5">
       {toggle === "vertical" ? (

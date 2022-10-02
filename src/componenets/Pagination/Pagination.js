@@ -3,9 +3,12 @@ import { BiChevronsLeft } from "react-icons/bi";
 import { BiChevronsRight } from "react-icons/bi";
 const Pagination = ({ showPerPage, onPaginationChange, total }) => {
   const [counter, setCounter] = useState(1);
-  const [numberOfButtons, setNumberOfButoons] = useState(
-    Math.ceil(total / showPerPage)
-  );
+  const [numberOfButtons, setNumberOfButtons] = useState(0);
+  // number of posts
+  useEffect(() => {
+    const number = Math.ceil(total / showPerPage);
+    setNumberOfButtons(number);
+  }, [total]);
 
   useEffect(() => {
     const value = showPerPage * counter;
@@ -37,7 +40,7 @@ const Pagination = ({ showPerPage, onPaginationChange, total }) => {
               <BiChevronsLeft size={30} onClick={() => onButtonClick("prev")} />
             </li>
 
-            {new Array(numberOfButtons).fill("").map((el, index) => (
+            {[...Array(numberOfButtons).keys()].map((index) => (
               <li
                 key={index}
                 className={`page-link ${

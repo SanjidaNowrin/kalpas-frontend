@@ -21,7 +21,6 @@ const Main = () => {
     const findPost = posts.filter((p) => p.id !== id);
     setPosts(findPost);
   };
-
   return (
     <div className="row gx-4 m-0">
       <div className="col-md-3 drawerBody ">
