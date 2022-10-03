@@ -33,7 +33,7 @@ const Pagination = ({ showPerPage, onPaginationChange, total }) => {
   };
   return (
     <div className="container">
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center align-items-center">
         <nav aria-label="Page navigation example">
           <ul className="pagination">
             <li className="typeButton">
@@ -42,17 +42,13 @@ const Pagination = ({ showPerPage, onPaginationChange, total }) => {
 
             {[...Array(numberOfButtons).keys()].slice(0, 3).map((index) => (
               <li
+                onClick={() => setCounter(index + 1)}
                 key={index}
                 className={`page-link ${
                   index + 1 === counter ? "pageActive" : "page-link"
                 }`}
               >
-                <p
-                  className="text-center mb-0"
-                  onClick={() => setCounter(index + 1)}
-                >
-                  {index + 1}
-                </p>
+                <p className="text-center ">{index + 1}</p>
               </li>
             ))}
             <li className="typeButton">

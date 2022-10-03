@@ -4,25 +4,38 @@ import validator from "validator";
 import DrawerReader from "./../DrawerReader/DrawerReader";
 const FeedBackModal = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    if (!validator.isEmail(data.email)) {
-      setError("Please enter a valid e-mail");
-    }
-    if (!validator.isAlphanumeric(data.phone)) {
-      setError("Please enter a valid number");
-    }
-    console.log(data);
-  };
+
   const [country, setCountry] = useState([]);
   const [searchCountry, setSearchCountry] = useState("");
-  const [error, setError] = useState("");
-  // console.log(searchCountry);
+  const [errorEmail, setErrorEmail] = useState("");
+  const [errorPhone, setErrorPhone] = useState("");
+
   // all country fetch
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
       .then((data) => setCountry(data));
   }, []);
+  // submit form
+  const onSubmit = (data) => {
+    if (!validator.isEmail(data.email)) {
+      setErrorEmail("Please enter a valid e-mail");
+    }
+
+    if (!validator.isAlphanumeric(data.phone)) {
+      setErrorPhone("Please enter a valid number");
+    }
+    console.log(data);
+  };
+
+  // reset error
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setErrorEmail("");
+      setErrorPhone("");
+    }, 2000);
+    return () => clearTimeout(timer);
+  });
   // search function
   const handleFilter = (event) => {
     const searchWord = event.target.value;
@@ -61,8 +74,8 @@ const FeedBackModal = () => {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
-          <div className="modal-content">
+        <div className="modal-dialog drawer-dialog">
+          <div className="modal-content drawer-content">
             <div className="modal-body ">
               <div className="row gx-5 container">
                 {/* drawer start */}
@@ -112,7 +125,7 @@ const FeedBackModal = () => {
                         placeholder="example@sample.com"
                         className="mb-0"
                       />
-                      <p className="text-danger mb-0 ms-2">{error}</p>
+                      <p className="text-danger mb-0 ms-2">{errorEmail}</p>
                     </div>
 
                     <br />
@@ -130,7 +143,7 @@ const FeedBackModal = () => {
                       />
                     </div>
                     <br />
-                    <p className="text-danger m-0">{error}</p>
+                    <p className="text-danger m-0">{errorPhone}</p>
 
                     <button type="submit" className="submit mt-2 border-0 p-2">
                       Submit Feedback

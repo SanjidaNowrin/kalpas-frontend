@@ -24,9 +24,13 @@ const Posts = ({ toggle, deletePost, posts }) => {
             <div key={post.id} className="d-flex justify-content-evenly">
               <div
                 className="card border-0  mb-3  cardVertical"
-                style={{ width: "950px" }}
+                style={{ width: "59.375rem" }}
               >
-                <div className="card-body d-flex text-start">
+                <div
+                  className="card-body d-flex text-start"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModalTwo"
+                >
                   <img
                     src="https://i.postimg.cc/8CSCygcH/Ellipse-1.png"
                     alt=""
@@ -50,12 +54,20 @@ const Posts = ({ toggle, deletePost, posts }) => {
           {posts?.slice(pagination.start, pagination.end).map((post) => (
             <div className="col-md-4" key={post?.id}>
               <div className="card border-0 mb-3 cardHorizontal">
-                <div className="card-body text-start">
-                  <div onClick={() => deletePost(post?.id)}>
-                    <p className="card-text text-end ">
-                      <ImCross size={20} />
-                    </p>
-                  </div>
+                {/* delete button */}
+                <div
+                  onClick={() => deletePost(post?.id)}
+                  className="container mt-2"
+                >
+                  <p className="card-text text-end ">
+                    <ImCross size={20} />
+                  </p>
+                </div>
+                <div
+                  className="card-body text-start"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModalTwo"
+                >
                   <h6>{post?.title.slice(0, 35)}...</h6>
                   <p>{post?.body.slice(0, 44)}...</p>
                   <p className="text-muted">Mon, 21 Dec 2020 14:57 GMT</p>
