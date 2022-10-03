@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import validator from "validator";
+import DrawerReader from "./../DrawerReader/DrawerReader";
 const FeedBackModal = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -41,7 +42,7 @@ const FeedBackModal = () => {
   // console.log(country);
 
   return (
-    <div className="mt-5 card border-0 readerCard">
+    <div className="card border-0 readerCard">
       <div className="card-body p-2">
         <h5>Have a Feedback?</h5>
         <div
@@ -52,7 +53,7 @@ const FeedBackModal = () => {
           We’re Listening!
         </div>
       </div>
-      {/* modal */}
+      {/* modal start*/}
       <div
         className="modal fade"
         id="exampleModal"
@@ -62,58 +63,78 @@ const FeedBackModal = () => {
       >
         <div className="modal-dialog">
           <div className="modal-content">
-            <div className="modal-body">
-              <div className="row">
+            <div className="modal-body ">
+              <div className="row gx-5 container">
+                {/* drawer start */}
                 <div className="col-md-4">
-                  <div className="card-body p-2">
-                    <h5>Have a Feedback?</h5>
-                    <div
-                      className="p-2 feedbackButton btn"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      We’re Listening!
+                  <DrawerReader />
+                  <div className="readerCard mt-4 p-2 bg-white">
+                    <div className="card-body p-2">
+                      <h5>Have a Feedback?</h5>
+                      <div className="p-2 feedbackModalButton btn">
+                        We’re Listening!
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="col-md-8">
-                  <h6>Thank you so much for taking the time! </h6>
-                  <p>Please provie the below details!</p>
-                  <form onSubmit={handleSubmit(onSubmit)}>
-                    <p>First Name:</p>
+                {/* drawer end */}
+                {/* form start */}
+                <div className="col-md-8 mt-2 text-start">
+                  <h5>Thank you so much for taking the time! </h5>
+                  <p>Please provide the below details!</p>
+                  <form onSubmit={handleSubmit(onSubmit)} className="mt-4">
+                    <p className="mb-1">First Name:</p>
                     <input
                       {...register("firstName")}
                       placeholder="First Name"
                     />
                     <br />
-                    <p>Last Name:</p>
+                    <p className="mb-1">Last Name:</p>
                     <input {...register("lastName")} placeholder="Last Name" />
                     <br />
-                    <p>Address</p>
+                    <p className="mb-1">Address</p>
                     <input
                       {...register("address")}
                       placeholder="Enter your full Postal Address"
                     />
                     <br />
-                    <p>Country</p>
+                    <p className="mb-1">Country</p>
                     <input
                       {...register("countryName")}
                       onChange={handleFilter}
                       placeholder=""
                     />
                     <br />
-                    <p>Email ID:</p>
-                    <input
-                      {...register("email")}
-                      placeholder="example@sample.com"
-                    />
-                    {error}
+                    <p className="mb-1">Email ID:</p>
+                    <div className="d-flex align-items-center">
+                      <input
+                        {...register("email")}
+                        placeholder="example@sample.com"
+                        className="mb-0"
+                      />
+                      <p className="text-danger mb-0 ms-2">{error}</p>
+                    </div>
+
                     <br />
-                    <p>Phone Number:</p>
-                    <input {...register("code")} placeholder="+91" />
-                    <input {...register("phone")} placeholder="123456789t" />
+                    <p className="mb-1">Phone Number:</p>
+                    <div className="d-flex flex-wrap">
+                      <input
+                        {...register("code")}
+                        placeholder="+91"
+                        className="mb-0"
+                      />
+                      <input
+                        {...register("phone")}
+                        className="ms-2  mb-0"
+                        placeholder="123456789"
+                      />
+                    </div>
                     <br />
-                    <input type="submit" />
+                    <p className="text-danger m-0">{error}</p>
+
+                    <button type="submit" className="submit mt-2 border-0 p-2">
+                      Submit Feedback
+                    </button>
                   </form>
                 </div>
               </div>
