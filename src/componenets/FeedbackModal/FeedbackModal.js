@@ -76,10 +76,10 @@ const FeedBackModal = () => {
       >
         <div className="modal-dialog drawer-dialog">
           <div className="modal-content drawer-content">
-            <div className="modal-body ">
+            <div className="modal-body">
               <div className="row gx-5 container">
                 {/* drawer start */}
-                <div className="col-md-4">
+                <div className="col-md-4 container">
                   <DrawerReader />
                   <div className="readerCard mt-4 p-2 bg-white">
                     <div className="card-body p-2">
@@ -142,10 +142,10 @@ const FeedBackModal = () => {
                         placeholder="123456789"
                       />
                     </div>
-                    <br />
+
                     <p className="text-danger m-0">{errorPhone}</p>
 
-                    <button type="submit" className="submit mt-2 border-0 p-2">
+                    <button type="submit" className="submit mt-4 border-0 p-2">
                       Submit Feedback
                     </button>
                   </form>

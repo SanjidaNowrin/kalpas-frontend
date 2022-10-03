@@ -116,7 +116,6 @@ input {
     0px 18px 88px -4px rgba(24, 39, 75, 0.14);
   border-radius: 8px;
   padding: 0.6rem;
-  width: 14rem;
 }
 .submit {
   background-color: #5cc8a1;
@@ -135,5 +134,10 @@ input {
 @media only screen and (max-width: 745px) {
   .drawerBody {
     height: 80vh;
+  }
+}
+@media only screen and (max-width: 520) {
+  .iframeBody {
+    overflow-x: scroll;
   }
 }

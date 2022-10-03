@@ -11,7 +11,7 @@ const IframePost = ({ src }) => {
     >
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-body">
+          <div class="modal-body iframeBody">
             <iframe
               title="first"
               allowFullScreen
